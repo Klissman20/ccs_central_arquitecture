@@ -1,3 +1,10 @@
+##Diagramas de flujo y su justificacion esta en la carpeta diagrams.
+
+##Implementacion de la solucion esta en la carpeta ccs_central.
+
+##Modelo entidad relacion, justificacion y sus respetivos scripts se encuentran en la carpeta er_model
+
+
 MANUAL DE INSTRUCCIONES
 EJECUCIÓN DE LA SOLUCIÓN CCS CENTRAL
 
