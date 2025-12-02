@@ -1,0 +1,33 @@
+{
+  "name": "ccs_central",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand",
+    "test:coverage": "jest --coverage --runInBand"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "aws-sdk-mock": "^6.2.1",
+    "jest": "^30.2.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "testEnvironment": "node"
+  }
+}

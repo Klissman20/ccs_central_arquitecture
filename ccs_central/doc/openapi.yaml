@@ -1,0 +1,175 @@
+openapi: 3.0.3
+info:
+  title: CCS Central API
+  version: 1.0.0
+  description: Sistema de emergencias y monitoreo para vehículos
+
+servers:
+  - url: http://localhost:4566
+    description: LocalStack
+
+paths:
+  /panic:
+    post:
+      summary: Activar botón de pánico
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - vehicle_id
+                - location
+              properties:
+                vehicle_id:
+                  type: string
+                location:
+                  type: string
+                description:
+                  type: string
+      responses:
+        "200":
+          description: Correcto
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /mechanical-help:
+    post:
+      summary: Solicitar ayuda mecánica
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - vehicle_id
+                - issue
+                - location
+              properties:
+                vehicle_id:
+                  type: string
+                issue:
+                  type: string
+                location:
+                  type: string
+      responses:
+        "200":
+          description: Correcto
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /crash:
+    post:
+      summary: Reportar accidente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - vehicle_id
+                - impact_force
+                - location
+              properties:
+                vehicle_id:
+                  type: string
+                impact_force:
+                  type: number
+                location:
+                  type: string
+      responses:
+        "200":
+          description: Correcto
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /telemetry:
+    post:
+      summary: Enviar telemetría
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - vehicle_id
+                - speed
+                - latitude
+                - longitude
+              properties:
+                vehicle_id:
+                  type: string
+                speed:
+                  type: number
+                latitude:
+                  type: number
+                longitude:
+                  type: number
+      responses:
+        "200":
+          description: Correcto
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /incidents/{vehicleId}:
+    get:
+      summary: Consultar incidentes por vehículo
+      parameters:
+        - in: path
+          name: vehicleId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Lista de incidentes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  vehicle_id:
+                    type: string
+                  total:
+                    type: integer
+                  incidents:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        incident_id:
+                          type: string
+                        type:
+                          type: string
+                        description:
+                          type: string
+                        location:
+                          type: string
+                        timestamp:
+                          type: string
+                        status:
+                          type: string
