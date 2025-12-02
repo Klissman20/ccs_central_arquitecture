@@ -31,6 +31,10 @@ Si alguno de estos comandos devuelve error, se debe instalar la herramienta corr
 
 PREPARACIÓN DEL PROYECTO
 
+clonar el repositorio
+
+link: http://github.com/Klissman20/ccs_central_arquitecture
+
 1. Abrir la carpeta del proyecto e ingresar a la carpeta ccs-central:
    cd ccs_central
 2. Instalar las dependencias del proyecto:
